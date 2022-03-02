@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateModeOfTransportationTable extends Migration
+class AddTimestampsToModeOfTransportationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateModeOfTransportationTable extends Migration
      */
     public function up()
     {
-        Schema::create('mode_of_transportation', function (Blueprint $table) {
-            $table->id();
-            $table->string('description',45)->nullable();
-            
+        Schema::table('mode_of_transportation', function (Blueprint $table) {
+            $table->timestamps();
         });
     }
 
@@ -27,6 +25,8 @@ class CreateModeOfTransportationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mode_of_transportation');
+        Schema::table('mode_of_transportation', function (Blueprint $table) {
+            //
+        });
     }
 }
