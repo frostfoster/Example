@@ -23,7 +23,7 @@ class CreateMiningTenementPermitTable extends Migration
             $table->string('barangay',50)->nullable();
             $table->string('municipality',50)->nullable();
             $table->string('province',50)->nullable();
-            $table->timestamps();
+            
         });
     }
 
