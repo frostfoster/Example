@@ -40,6 +40,7 @@ class CreateApplicationTable extends Migration
             $table->string('certification_or',25)->nullable();
             $table->date('cerfication_date')->nullable();
             $table->integer('permit_id');
+            $table->timestamps();
         });
     }
 
