@@ -16,6 +16,8 @@ class CreateModeOfTransportationTable extends Migration
         Schema::create('mode_of_transportation', function (Blueprint $table) {
             $table->id();
             $table->string('description',45)->nullable();
+            $table->timestamps();
+
             
         });
     }
