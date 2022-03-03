@@ -15,13 +15,7 @@ class CreateViolationTypeTable extends Migration
     {
         Schema::create('violation_type', function (Blueprint $table) {
             $table->integer('id')->nullable()->primary();
-            $table->string('responsible_person',254)->nullable();
-            $table->date('date_apprehend')->nullable();
-            $table->string('time_apprehend',10)->nullable();
-            $table->longText('remark')->nullable();
-            $table->integer('violation_permit_id')->nullable();
-            $table->string('permit_holder',100);
-            $table->string('area_location',255);
+            $table->string('description',100)->nullable();
             $table->timestamps();
         });
     }
