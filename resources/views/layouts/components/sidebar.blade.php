@@ -65,8 +65,8 @@
                 </a><!--//nav-link-->
                 <div id="submenu-2" class="collapse submenu submenu-2" data-bs-parent="#menu-accordion">
                     <ul class="submenu-list list-unstyled">
-                        <li class="submenu-item"><a class="submenu-link" href="login.html">Permittee</a></li>
-                        <li class="submenu-item"><a class="submenu-link" href="signup.html">Violation</a></li>
+                        <li class="submenu-item"><a class="submenu-link" href='permittee'>Permittee</a></li>
+                        <li class="submenu-item"><a class="submenu-link" href="violation">Violation</a></li>
                     </ul>
                 </div>
             </li><!--//nav-item-->   
