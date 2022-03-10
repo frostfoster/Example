@@ -48,7 +48,6 @@ Route::put('/update-permittee/{id}', [App\Http\Controllers\PermitteeController::
 
 Route::get('/delete-permittee/{id}', [App\Http\Controllers\PermitteeController::class, 'destroy']);
 
-Route::post('/search', [App\Http\Controllers\PermitteeController::class, 'search']);
 
 
 
@@ -63,7 +62,6 @@ Route::post('/update-tenement/{id}', [App\Http\Controllers\MiningTenementPermitC
 
 Route::get('/delete-tenement/{id}', [App\Http\Controllers\MiningTenementPermitController::class, 'destroy']);
 
-Route::post('/search', [App\Http\Controllers\MiningTenementPermitController::class, 'search']);
 
 
 Route::get('/transportation', [App\Http\Controllers\ModeofTransportationController::class, 'index'])->name('transportation');
