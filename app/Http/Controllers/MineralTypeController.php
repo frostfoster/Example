@@ -74,10 +74,10 @@ class MineralTypeController extends Controller
      * @param  \App\Models\MineralType  $mineralType
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit(Request $request, $id)
     {
-      
-        
+        $data = MineralType::find($id);
+        return view('mineraltypeupdate',compact ('data'));
     }
 
     /**
@@ -89,12 +89,12 @@ class MineralTypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request);
-        // $data = MineralType::find($id);
-        // $data->description=$request->input('description');
-        // $data->save();
+        
+        $data = MineralType::find($id);
+        $data->description=$request->input('description');
+        $data->save();
 
-        // return redirect()->back();
+        return redirect()->back();
     }
 
     /**
@@ -103,8 +103,11 @@ class MineralTypeController extends Controller
      * @param  \App\Models\MineralType  $mineralType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MineralType $mineralType)
+    public function destroy($id)
     {
-        //
+        $data = MineralType::find($id);
+        $data->delete();
+
+        return redirect()->back();
     }
 }

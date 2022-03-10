@@ -50,8 +50,8 @@
 													<td class="cell"><span class="truncate"> {{$item->description}} </span></td>
 													<td class="cell">
 														{{-- <a href="" class="btn-sm app-btn-secondary" data-bs-toggle="modal" data-bs-target="#editData">Edit</a> --}}
-														<a href="/mineraltypeupdate" class="btn-sm app-btn-secondary"> Edit</a>
-														<a href="" class="btn-sm app-btn-secondary">Delete</a>
+														<a href="{{ url('mineraltypeupdate/'.$item->id) }}" class="btn-sm app-btn-secondary"> Edit</a>
+														<a href=" {{url('mineraltypedelete/'.$item->id) }} }} " class="btn-sm app-btn-secondary">Delete</a>
 													</td>
 												</tr>	
 												@endforeach	

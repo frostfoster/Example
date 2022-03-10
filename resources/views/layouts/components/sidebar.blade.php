@@ -40,10 +40,10 @@
                 </a><!--//nav-link-->
                 <div id="submenu-1" class="collapse submenu submenu-1" data-bs-parent="#menu-accordion">
                     <ul class="submenu-list list-unstyled">
-                        <li class="submenu-item"><a class="submenu-link" href="">Application</a></li>
+                        <li class="submenu-item"><a class="submenu-link" href="notifications.html">Application</a></li>
                         <li class="submenu-item"><a class="submenu-link" href="/mineraltypes">Mineral Types</a></li>
-                        <li class="submenu-item"><a class="submenu-link" href="">Mining Tenement Permit</a></li>
-                        <li class="submenu-item"><a class="submenu-link" href="">Mode of Transport</a></li>
+                        <li class="submenu-item"><a class="submenu-link" href="/tenement">Mining Tenement Permit</a></li>
+                        <li class="submenu-item"><a class="submenu-link" href="settings.html">Mode of Transport</a></li>
                     </ul>
                 </div>
             </li><!--//nav-item-->
@@ -65,8 +65,8 @@
                 </a><!--//nav-link-->
                 <div id="submenu-2" class="collapse submenu submenu-2" data-bs-parent="#menu-accordion">
                     <ul class="submenu-list list-unstyled">
-                        <li class="submenu-item"><a class="submenu-link" href="login.html">Permittee</a></li>
-                        <li class="submenu-item"><a class="submenu-link" href="signup.html">Violation</a></li>
+                        <li class="submenu-item"><a class="submenu-link" href='permittee'>Permittee</a></li>
+                        <li class="submenu-item"><a class="submenu-link" href="violation">Violation</a></li>
                     </ul>
                 </div>
             </li><!--//nav-item-->   
