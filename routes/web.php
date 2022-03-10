@@ -36,3 +36,15 @@ Route::put('/update-permittee/{id}', [App\Http\Controllers\PermitteeController::
 Route::get('/delete-permittee/{id}', [App\Http\Controllers\PermitteeController::class, 'destroy']);
 
 Route::post('/search', [App\Http\Controllers\PermitteeController::class, 'search']);
+
+
+Route::get('/tenement', [App\Http\Controllers\ModeofTransportationController::class, 'index'])->name('transportation');
+
+Route::post('tenement_add', [App\Http\Controllers\ModeofTransportationController::class, 'store']);
+
+Route::get('/edit-tenement/{id}', [App\Http\Controllers\ModeofTransportationController::class, 'edit']);
+
+Route::post('/update-tenement/{id}', [App\Http\Controllers\ModeofTransportationController::class, 'update']);
+
+Route::get('/delete-tenement/{id}', [App\Http\Controllers\ModeofTransportationController::class, 'destroy']);
+
