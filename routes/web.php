@@ -1,8 +1,11 @@
 <?php
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MineralTypeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -22,3 +27,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/mineraltypes', [MineralTypeController::class,'store']);
+Route::get('/mineraltypes',[MineralTypeController::class,'show']);
+Route::view('/testing','test');
+Route::post('edit/{id}',[MineralTypeController::class,'update']);
+Route::view('mineraltypeupdate','mineraltypeupdate');
