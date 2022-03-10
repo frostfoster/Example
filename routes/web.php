@@ -36,3 +36,18 @@ Route::put('/update-permittee/{id}', [App\Http\Controllers\PermitteeController::
 Route::get('/delete-permittee/{id}', [App\Http\Controllers\PermitteeController::class, 'destroy']);
 
 Route::post('/search', [App\Http\Controllers\PermitteeController::class, 'search']);
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/tenement', [App\Http\Controllers\MiningTenementPermitController::class, 'index'])->name('tenement');
+
+Route::post('tenement_add', [App\Http\Controllers\MiningTenementPermitController::class, 'store']);
+
+Route::get('/edit-tenement/{id}', [App\Http\Controllers\MiningTenementPermitController::class, 'edit']);
+
+Route::post('/update-tenement/{id}', [App\Http\Controllers\MiningTenementPermitController::class, 'update']);
+
+Route::get('/delete-tenement/{id}', [App\Http\Controllers\MiningTenementPermitController::class, 'destroy']);
+
+Route::post('/search', [App\Http\Controllers\MiningTenementPermitController::class, 'search']);

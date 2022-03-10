@@ -42,7 +42,7 @@
                     <ul class="submenu-list list-unstyled">
                         <li class="submenu-item"><a class="submenu-link" href="notifications.html">Application</a></li>
                         <li class="submenu-item"><a class="submenu-link" href="account.html">Mineral Types</a></li>
-                        <li class="submenu-item"><a class="submenu-link" href="settings.html">Mining Tenement Permit</a></li>
+                        <li class="submenu-item"><a class="submenu-link" href="/tenement">Mining Tenement Permit</a></li>
                         <li class="submenu-item"><a class="submenu-link" href="settings.html">Mode of Transport</a></li>
                     </ul>
                 </div>
