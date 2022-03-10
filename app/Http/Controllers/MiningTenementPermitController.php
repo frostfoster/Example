@@ -81,10 +81,11 @@ class MiningTenementPermitController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tenement = new MiningTenementPermit;
+        $tenement = MiningTenementPermit::find($id);
         $tenement->description = $request->input('description');
-        $tenement->granted = $request->input('date');
-        $tenement->expired = $request->input('date');
+        $tenement->denominated = $request->input('denominated');
+        $tenement->granted = $request->input('granted');
+        $tenement->expired = $request->input('expired');
         $tenement->sitio = $request->input('sitio');
         $tenement->barangay = $request->input('barangay');
         $tenement->municipality = $request->input('municipality');

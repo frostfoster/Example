@@ -49,51 +49,53 @@
                         <form class="form-row" method="POST" action="{{ url('tenement_add') }}">
                             @csrf
                             <div class="mb-3">
-                                <label for="setting-input-1" class="form-label">Description</label>
-                                <input type="text" class="form-control" name="description" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="setting-input-2" class="form-label">Denominated</label>
-                                <input type="text" class="form-control" name="area" required>
-                            </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="setting-input-1" class="form-label">Description</label>
+                                      <input type="text" name="description" class="form-control" required>
+                                    </div>
+                                    <div class="col">
+                                        <label for="setting-input-1" class="form-label">Denominated</label>
+                                      <input type="text" class="form-control" name="denominated" required>
+                                    </div>
+                                </div>
+                            </div>      
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col">
                                         <label for="setting-input-1" class="form-label">Date Granted</label>
-                                      <input type="date" name="text" class="form-control" required>
+                                      <input type="date" name="granted" class="form-control" required>
                                     </div>
                                     <div class="col">
                                         <label for="setting-input-1" class="form-label">Date Expired</label>
-                                        <input type="date" class="form-control" name="text" required>
-                                      </div>
+                                      <input type="date" class="form-control" name="expired" required>
+                                    </div>
                                 </div>
-                            </div>  
+                            </div>      
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col">
                                         <label for="setting-input-1" class="form-label">Sitio</label>
-                                      <input type="text" name="text" class="form-control" required>
+                                      <input type="text" name="sitio" class="form-control" required>
                                     </div>
                                     <div class="col">
                                         <label for="setting-input-1" class="form-label">Barangay</label>
-                                        <input type="text" class="form-control" name="text" required>
-                                      </div>
+                                      <input type="text" class="form-control" name="barangay" required>
+                                    </div>
                                 </div>
-                            </div>     
-                            
+                            </div>
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col">
                                         <label for="setting-input-1" class="form-label">Municipality</label>
-                                      <input type="text" name="text" class="form-control" required>
+                                      <input type="text" name="municipality" class="form-control" required>
                                     </div>
                                     <div class="col">
                                         <label for="setting-input-1" class="form-label">Province</label>
-                                        <input type="text" class="form-control" name="text" required>
-                                      </div>
+                                      <input type="text" class="form-control" name="province" required>
+                                    </div>
                                 </div>
-                            </div>     
-                         
+                            </div>
                             <button type="submit" class="btn app-btn-primary" >Add</button>
                         </form>
                     </div>
