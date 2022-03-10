@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApplicationController;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +24,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::view('/application','application');
+Route::post('/add',[ApplicationController::class,'store']);
