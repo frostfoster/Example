@@ -59,7 +59,7 @@ class ModeofTransportationController extends Controller
      * @param  \App\Models\ModeofTransportation  $modeofTransportation
      * @return \Illuminate\Http\Response
      */
-    public function edit(ModeofTransportation $modeofTransportation)
+    public function edit(ModeofTransportation $modeofTransportation, $id)
     {
         $transportation = ModeofTransportation::find($id);
         return view('transportationUpdate',compact('transportation'));
@@ -72,7 +72,8 @@ class ModeofTransportationController extends Controller
      * @param  \App\Models\ModeofTransportation  $modeofTransportation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ModeofTransportation $modeofTransportation)
+    public function update(Request $request, $id)
+    
     {
         $transportation = ModeofTransportation::find($id);
         $transportation->description = $request->input('description');
@@ -86,7 +87,7 @@ class ModeofTransportationController extends Controller
      * @param  \App\Models\ModeofTransportation  $modeofTransportation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ModeofTransportation $modeofTransportation)
+    public function destroy(ModeofTransportation $modeofTransportation, $id)
     {
         $transportation = ModeofTransportation::find($id);
         $transportation->delete();

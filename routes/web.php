@@ -1,8 +1,11 @@
 <?php
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MineralTypeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -22,6 +27,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('/mineraltypes', [MineralTypeController::class,'store']);
+Route::get('/mineraltypes',[MineralTypeController::class,'show']);
+Route::view('/testing','test');
+Route::post('edit/{id}',[MineralTypeController::class,'update']);
+Route::get('mineraltypeupdate/{id}',[MineralTypeController::class,'edit']);
+Route::get('/mineraltypedelete/{id}', [MineralTypeController::class, 'destroy']);
+
 
 Route::get('/permittee', [App\Http\Controllers\PermitteeController::class, 'index'])->name('permittee');
 
@@ -38,13 +51,27 @@ Route::get('/delete-permittee/{id}', [App\Http\Controllers\PermitteeController::
 Route::post('/search', [App\Http\Controllers\PermitteeController::class, 'search']);
 
 
-Route::get('/tenement', [App\Http\Controllers\ModeofTransportationController::class, 'index'])->name('transportation');
 
-Route::post('tenement_add', [App\Http\Controllers\ModeofTransportationController::class, 'store']);
 
-Route::get('/edit-tenement/{id}', [App\Http\Controllers\ModeofTransportationController::class, 'edit']);
+Route::get('/tenement', [App\Http\Controllers\MiningTenementPermitController::class, 'index'])->name('tenement');
 
-Route::post('/update-tenement/{id}', [App\Http\Controllers\ModeofTransportationController::class, 'update']);
+Route::post('tenement_add', [App\Http\Controllers\MiningTenementPermitController::class, 'store']);
 
-Route::get('/delete-tenement/{id}', [App\Http\Controllers\ModeofTransportationController::class, 'destroy']);
+Route::get('/edit-tenement/{id}', [App\Http\Controllers\MiningTenementPermitController::class, 'edit']);
 
+Route::post('/update-tenement/{id}', [App\Http\Controllers\MiningTenementPermitController::class, 'update']);
+
+Route::get('/delete-tenement/{id}', [App\Http\Controllers\MiningTenementPermitController::class, 'destroy']);
+
+Route::post('/search', [App\Http\Controllers\MiningTenementPermitController::class, 'search']);
+
+
+Route::get('/transportation', [App\Http\Controllers\ModeofTransportationController::class, 'index'])->name('transportation');
+
+Route::post('transportation_add', [App\Http\Controllers\ModeofTransportationController::class, 'store']);
+
+Route::get('/edit-transportation/{id}', [App\Http\Controllers\ModeofTransportationController::class, 'edit']);
+
+Route::post('/update-transportation/{id}', [App\Http\Controllers\ModeofTransportationController::class, 'update']);
+
+Route::get('/delete-transportation/{id}', [App\Http\Controllers\ModeofTransportationController::class, 'destroy']);

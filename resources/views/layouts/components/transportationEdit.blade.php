@@ -18,7 +18,7 @@
                                         
                         <form class="form-row" method="POST" action="{{ url('update-transportation/'.$transportation->id) }}">
                             @csrf
-                            @method('PUT')
+                            
                             <div class="mb-3">
                                 <label for="setting-input-1" class="form-label">Description</label>
                                 <input type="text" class="form-control" name="description" value="{{$transportation->description}}">
