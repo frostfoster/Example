@@ -13,9 +13,9 @@
                         <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
                             <div class="col-auto"> 
                                 
-                                <form class="docs-search-form row gx-1 align-items-center" action="{{ url('search') }}" method="GET">
+                                <form class="docs-search-form row gx-1 align-items-center" action="{{ url('permittee') }}" method="GET">
                                     <div class="col-auto">
-                                        <input type="text" id="search-docs" name="search" class="form-control search-docs" placeholder="Search Person">
+                                        <input type="text" id="search-docs" name="search" class="form-control search-docs" placeholder="Search Person" value="{{request()->query('search')}}">
                                     </div>
                                     <div class="col-auto">
                                         <button type="submit" class="btn app-btn-secondary">Search</button>
@@ -117,9 +117,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($permittee as $item)
-                                            
-                                       
+                                        @forelse ($permittee as $item)                                                                          
                                         <tr>
                                             <td class="cell">{{ $item->id }}</td>
                                             <td class="cell"><span class="truncate">{{ $item->responsible_person }}</span></td>
@@ -130,8 +128,12 @@
                                                 <a class="btn" href="{{ url('edit-permittee/'.$item->id) }}"><span class="badge bg-success">Edit</span></a>
                                                 <a class="btn" href="{{ url('delete-permittee/'.$item->id) }}"><span class="badge bg-danger">Delete</span></a>
                                             </td>
-                                        </tr>
-                                        @endforeach
+                                                @empty
+                                                <p class="text-center">
+                                                    No result found for query <strong>{{request()->query('search')}}</strong>
+                                                </p>
+                                        </tr>                              
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div><!--//table-responsive-->

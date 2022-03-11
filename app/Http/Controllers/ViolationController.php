@@ -14,7 +14,8 @@ class ViolationController extends Controller
      */
     public function index()
     {
-        return view('violation');
+        $violation = Violation::paginate(5);
+        return view('violation',compact('violation'));
     }
 
     /**
@@ -35,7 +36,10 @@ class ViolationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $violation = new Violation;
+        $violation->description = $request->input('description');
+        $violation->save();
+        return redirect()->back()->with('status','Violation Added Successfully');
     }
 
     /**
@@ -55,9 +59,10 @@ class ViolationController extends Controller
      * @param  \App\Models\Violation  $violation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Violation $violation)
+    public function edit(Violation $violation,$id)
     {
-        //
+        $violation = Violation::find($id);
+        return view('violationUpdate',compact('violation'));
     }
 
     /**
@@ -67,9 +72,12 @@ class ViolationController extends Controller
      * @param  \App\Models\Violation  $violation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Violation $violation)
+    public function update(Request $request,$id)
     {
-        //
+        $violation = Violation::find($id);
+        $violation->description = $request->input('description');
+        $violation->update();
+        return redirect()->back()->with('status','Violation Updated Successfully');
     }
 
     /**

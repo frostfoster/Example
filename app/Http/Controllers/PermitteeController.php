@@ -16,7 +16,14 @@ class PermitteeController extends Controller
      */
     public function index()
     {
-        $permittee = Permittee::paginate(10);
+        $search = request()->query('search');
+        if($search){
+            $permittee = Permittee::where('responsible_person','LIKE','%'.$search.'%')
+            ->orWhere('permit_holder','LIKE','%'.$search.'%')->paginate(5);
+            $permittee->appends(['search' => $search]);
+        }else{
+            $permittee = Permittee::paginate(10);
+        }        
         return view('permittee', compact('permittee'));
     }
 
@@ -102,20 +109,9 @@ class PermitteeController extends Controller
      */
     public function destroy($id)
     {
-
         $permittee = Permittee::find($id);
-        $permittee->delete();
-
-        
+        $permittee->delete();       
         return redirect()->back()->with('status','Permittee Deleted Successfully');
     }
-
-    public function search(Request $request){
-
-        $search_text = $request->get('search');
-        // $permittee = Permittee::where('responsible_person','LIKE','&'.$search_text.'&')->get();
-
-        // return view('permittee', compact('permittee'));
-        return Log::alert($search_text);
-    }
 }
+

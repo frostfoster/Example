@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Violation extends Model
 {
     use HasFactory;
+    protected $table = 'violation_type';
+    protected $fillable = [
+        'description'
+    ];
 }
