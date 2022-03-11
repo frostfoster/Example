@@ -38,7 +38,6 @@ Route::get('/mineraltypedelete/{id}', [MineralTypeController::class, 'destroy'])
 
 Route::get('/permittee', [App\Http\Controllers\PermitteeController::class, 'index'])->name('permittee');
 
-Route::get('/violation', [App\Http\Controllers\ViolationController::class, 'index'])->name('violation');
 
 Route::post('permitte_add', [App\Http\Controllers\PermitteeController::class, 'store']);
 
@@ -73,3 +72,12 @@ Route::get('/edit-transportation/{id}', [App\Http\Controllers\ModeofTransportati
 Route::post('/update-transportation/{id}', [App\Http\Controllers\ModeofTransportationController::class, 'update']);
 
 Route::get('/delete-transportation/{id}', [App\Http\Controllers\ModeofTransportationController::class, 'destroy']);
+
+
+Route::get('/violation', [App\Http\Controllers\ViolationController::class, 'index'])->name('violation');
+
+Route::post('violation_add',[App\Http\Controllers\ViolationController::class, 'store']);
+
+Route::get('edit-violation/{id}',[App\Http\Controllers\ViolationController::class, 'edit']);
+
+Route::post('update-violation/{id}',[App\Http\Controllers\ViolationController::class, 'update']);
