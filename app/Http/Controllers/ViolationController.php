@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Application;
+use App\Models\Violation;
 use Illuminate\Http\Request;
 
-class ApplicationController extends Controller
+class ViolationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class ApplicationController extends Controller
      */
     public function index()
     {
-        //
-        $application = Application::paginate(10);
-        return view('application', compact('application'));
+        return view('violation');
     }
 
     /**
@@ -38,18 +36,15 @@ class ApplicationController extends Controller
     public function store(Request $request)
     {
         //
-        $input=$request->all();
-        Application::create($input);
-        return redirect('applicationTable')->with('flash_message', 'Applicant Addedd!');  
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Application  $application
+     * @param  \App\Models\Violation  $violation
      * @return \Illuminate\Http\Response
      */
-    public function show(Application $application)
+    public function show(Violation $violation)
     {
         //
     }
@@ -57,10 +52,10 @@ class ApplicationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Application  $application
+     * @param  \App\Models\Violation  $violation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Application $application)
+    public function edit(Violation $violation)
     {
         //
     }
@@ -69,10 +64,10 @@ class ApplicationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Application  $application
+     * @param  \App\Models\Violation  $violation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Application $application)
+    public function update(Request $request, Violation $violation)
     {
         //
     }
@@ -80,10 +75,10 @@ class ApplicationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Application  $application
+     * @param  \App\Models\Violation  $violation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Application $application)
+    public function destroy(Violation $violation)
     {
         //
     }

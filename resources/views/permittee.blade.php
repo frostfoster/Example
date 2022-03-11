@@ -3,6 +3,6 @@
 @section('content')
     <div class="card-body">
         <br><br>
-        @include('layouts\components\applicationTable')
+        @include('layouts\components\permitteeTable')
     </div>
 @endsection
