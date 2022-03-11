@@ -13,15 +13,7 @@
                         <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
                             <div class="col-auto"> 
                                 
-                                <form class="docs-search-form row gx-1 align-items-center" action="{{ url('search') }}" method="GET">
-                                    <div class="col-auto">
-                                        <input type="text" id="search-docs" name="search" class="form-control search-docs" placeholder="Search Person">
-                                    </div>
-                                    <div class="col-auto">
-                                        <button type="submit" class="btn app-btn-secondary">Search</button>
-                                    </div>
-
-                                </form>
+                        
                             </div><!--//col-->
                             <div class="col-auto">                           
                             </div>
