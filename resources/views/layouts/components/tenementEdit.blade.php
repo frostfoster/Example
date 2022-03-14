@@ -3,8 +3,10 @@
         <div class="container-xl">
             <div class="col-auto">
                 <h1 class="app-page-title mb-0">MINING</h1>
+                    <a href="{{ url('tenement') }}" class="btn btn-danger float-end">BACK</a>
+                </h1>
+                <br>
             </div>
-            <br>
             @if (session('status'))
             <h6 class="alert alert-success">{{ session('status') }}</h6>
         @endif
