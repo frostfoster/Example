@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Violation extends Model
+class ModeofTransportation extends Model
 {
     use HasFactory;
-    protected $table = 'violation_type';
+    protected $table = 'mode_of_transportation';
     protected $fillable = [
         'description'
     ];

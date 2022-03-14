@@ -43,7 +43,7 @@
                         <li class="submenu-item"><a class="submenu-link" href="/application">Application</a></li>
                         <li class="submenu-item"><a class="submenu-link" href="/mineraltypes">Mineral Types</a></li>
                         <li class="submenu-item"><a class="submenu-link" href="/tenement">Mining Tenement Permit</a></li>
-                        <li class="submenu-item"><a class="submenu-link" href="settings.html">Mode of Transport</a></li>
+                        <li class="submenu-item"><a class="submenu-link" href="/transportation">Mode of Transport</a></li>
                     </ul>
             </li><!--//nav-item-->
             <li class="nav-item has-submenu">

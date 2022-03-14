@@ -24,7 +24,6 @@ class CreateMiningTenementPermitTable extends Migration
             $table->string('municipality',50)->nullable();
             $table->string('province',50)->nullable();
             $table->timestamps();
-            
         });
     }
 

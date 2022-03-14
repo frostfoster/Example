@@ -38,9 +38,14 @@ class ApplicationController extends Controller
     public function store(Request $request)
     {
         //
+        $input = new Application;
+        if ($input->otp == 1)
+        {
+            $input->otp;
+        }
         $input=$request->all();
         Application::create($input);
-        return redirect('applicationTable')->with('flash_message', 'Applicant Addedd!');  
+        return redirect()->back()->with('status','Permittee Added Successfully');
     }
 
     /**
@@ -60,9 +65,11 @@ class ApplicationController extends Controller
      * @param  \App\Models\Application  $application
      * @return \Illuminate\Http\Response
      */
-    public function edit(Application $application)
+    public function edit($id)
     {
         //
+        $application = Application::find($id);
+        return view('applicationUpdate',compact("application"));
     }
 
     /**
@@ -72,9 +79,13 @@ class ApplicationController extends Controller
      * @param  \App\Models\Application  $application
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Application $application)
+    public function update(Request $request,$id)
     {
         //
+        $application = Application::find($id);
+        $input = $request->all();
+        $application->update($input);
+        return redirect()->back()->with('status','Application Updated Successfully');
     }
 
     /**
@@ -83,8 +94,19 @@ class ApplicationController extends Controller
      * @param  \App\Models\Application  $application
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Application $application)
+    public function destroy($id)
     {
         //
+        $application = Application::find($id);
+        $application->delete();       
+        return redirect()->back()->with('status','Application Deleted Successfully');
+    }
+
+    public function search()
+    {
+        //
+        $search_text = $_GET['search'];
+        $application = Application::where('applicant_name','LIKE', '%'.$search_text.'%')->get();
+        return view('application', compact('application'));
     }
 }

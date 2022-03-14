@@ -38,10 +38,13 @@ Route::get('/mineraltypedelete/{id}', [MineralTypeController::class, 'destroy'])
 
 Route::get('/application',[ApplicationController::class, 'index'])->name('application');
 Route::post('application_add',[ApplicationController::class, 'store']);
+Route::get('/application_edit/{id}', [ApplicationController::class, 'edit']);
+Route::put('/application_update/{id}', [ApplicationController::class, 'update']);
+Route::get('/application_delete/{id}', [ApplicationController::class, 'destroy']);
+Route::get('/application_search', [ApplicationController::class, 'index']);
 
 Route::get('/permittee', [App\Http\Controllers\PermitteeController::class, 'index'])->name('permittee');
 
-Route::get('/violation', [App\Http\Controllers\ViolationController::class, 'index'])->name('violation');
 
 Route::post('permitte_add', [App\Http\Controllers\PermitteeController::class, 'store']);
 
@@ -51,7 +54,6 @@ Route::put('/update-permittee/{id}', [App\Http\Controllers\PermitteeController::
 
 Route::get('/delete-permittee/{id}', [App\Http\Controllers\PermitteeController::class, 'destroy']);
 
-Route::post('/search', [App\Http\Controllers\PermitteeController::class, 'search']);
 
 Route::get('/tenement', [App\Http\Controllers\MiningTenementPermitController::class, 'index'])->name('tenement');
 
@@ -63,4 +65,23 @@ Route::post('/update-tenement/{id}', [App\Http\Controllers\MiningTenementPermitC
 
 Route::get('/delete-tenement/{id}', [App\Http\Controllers\MiningTenementPermitController::class, 'destroy']);
 
-Route::post('/search', [App\Http\Controllers\MiningTenementPermitController::class, 'search']);
+
+
+Route::get('/transportation', [App\Http\Controllers\ModeofTransportationController::class, 'index'])->name('transportation');
+
+Route::post('transportation_add', [App\Http\Controllers\ModeofTransportationController::class, 'store']);
+
+Route::get('/edit-transportation/{id}', [App\Http\Controllers\ModeofTransportationController::class, 'edit']);
+
+Route::post('/update-transportation/{id}', [App\Http\Controllers\ModeofTransportationController::class, 'update']);
+
+Route::get('/delete-transportation/{id}', [App\Http\Controllers\ModeofTransportationController::class, 'destroy']);
+
+
+Route::get('/violation', [App\Http\Controllers\ViolationController::class, 'index'])->name('violation');
+
+Route::post('violation_add',[App\Http\Controllers\ViolationController::class, 'store']);
+
+Route::get('edit-violation/{id}',[App\Http\Controllers\ViolationController::class, 'edit']);
+
+Route::post('update-violation/{id}',[App\Http\Controllers\ViolationController::class, 'update']);
