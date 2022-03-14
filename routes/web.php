@@ -41,7 +41,6 @@ Route::post('application_add',[ApplicationController::class, 'store']);
 Route::get('/application_edit/{id}', [ApplicationController::class, 'edit']);
 Route::put('/application_update/{id}', [ApplicationController::class, 'update']);
 Route::get('/application_delete/{id}', [ApplicationController::class, 'destroy']);
-Route::get('/application_search', [ApplicationController::class, 'index']);
 
 Route::get('/permittee', [App\Http\Controllers\PermitteeController::class, 'index'])->name('permittee');
 

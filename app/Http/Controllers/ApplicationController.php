@@ -15,7 +15,14 @@ class ApplicationController extends Controller
     public function index()
     {
         //
-        $application = Application::paginate(10);
+        $search = request()->query('search');
+        if($search){
+            $application = Application::where('permittee_name','LIKE','%'.$search.'%')
+            ->orWhere('applicant_name','LIKE','%'.$search.'%')->paginate(5);
+            $application->appends(['search' => $search]);
+        }else{
+            $application = Application::paginate(10);
+        }        
         return view('application', compact('application'));
     }
 
