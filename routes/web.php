@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MineralTypeController;
+use App\Http\Controllers\ApplicationController;
 
 
 /*
@@ -35,6 +36,11 @@ Route::post('edit/{id}',[MineralTypeController::class,'update']);
 Route::get('mineraltypeupdate/{id}',[MineralTypeController::class,'edit']);
 Route::get('/mineraltypedelete/{id}', [MineralTypeController::class, 'destroy']);
 
+Route::get('/application',[ApplicationController::class, 'index'])->name('application');
+Route::post('application_add',[ApplicationController::class, 'store']);
+Route::get('/application_edit/{id}', [ApplicationController::class, 'edit']);
+Route::put('/application_update/{id}', [ApplicationController::class, 'update']);
+Route::get('/application_delete/{id}', [ApplicationController::class, 'destroy']);
 
 Route::get('/permittee', [App\Http\Controllers\PermitteeController::class, 'index'])->name('permittee');
 
@@ -46,9 +52,6 @@ Route::get('/edit-permittee/{id}', [App\Http\Controllers\PermitteeController::cl
 Route::put('/update-permittee/{id}', [App\Http\Controllers\PermitteeController::class, 'update']);
 
 Route::get('/delete-permittee/{id}', [App\Http\Controllers\PermitteeController::class, 'destroy']);
-
-
-
 
 
 Route::get('/tenement', [App\Http\Controllers\MiningTenementPermitController::class, 'index'])->name('tenement');
