@@ -6,7 +6,7 @@
                     <h6 class="alert alert-success">{{ session('status') }}</h6>
                 @endif
                 <div class="col-auto">
-                    <h1 class="app-page-title mb-0">List of Permittee</h1>
+                    <h1 class="app-page-title mb-0">List of Violations</h1>
                 </div>            
                 <div class="col-auto">
                      <div class="page-utilities">
