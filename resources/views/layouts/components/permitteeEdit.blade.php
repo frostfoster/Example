@@ -50,11 +50,11 @@
                                 <div class="row">
                                     <div class="col">
                                         <label class="form-label">Violation</label>
-                                            <select name="violation" class="form-control" value="{{$permittee->violation_permit_id}}">
-                                                <option value="1">Pending</option>
-                                                <option value="2">Running</option>
-                                                <option value="3">Completed</option>
-                                            </select>
+                                        <select name="violation" class="form-control" required>
+                                            @foreach ($violation as $item)                                 
+                                                    <option value="{{$item->id}}" {{$item->id == $permittee->violation_permit_id ? 'selected' : ''}}>{{$item->description}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
 
                                     

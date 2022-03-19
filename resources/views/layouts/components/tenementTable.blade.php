@@ -30,6 +30,76 @@
                 </div><!--//col-auto-->
             </div>
 
+            <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="updateModalLabel">Update Modal</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                                        
+                       
+                        <form id="updateform" class="form-row" method="POST">
+                            @csrf
+                            @method("PUT")
+                            <div class="mb-3">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="setting-input-1" class="form-label">Description</label>
+                                      <input type="text" name="description2" class="form-control">
+                                    </div>
+                                    <div class="col">
+                                        <label for="setting-input-1" class="form-label">Denominated</label>
+                                      <input type="text" class="form-control" name="denominated2">
+                                    </div>
+                                </div>
+                            </div>      
+                            <div class="mb-3">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="setting-input-1" class="form-label">Date Granted</label>
+                                      <input type="date" name="granted2" class="form-control">
+                                    </div>
+                                    <div class="col">
+                                        <label for="setting-input-1" class="form-label">Date Expired</label>
+                                      <input type="date" class="form-control" name="expired2">
+                                    </div>
+                                </div>
+                            </div>      
+                            <div class="mb-3">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="setting-input-1" class="form-label">Sitio</label>
+                                      <input type="text" name="sitio2" class="form-control">
+                                    </div>
+                                    <div class="col">
+                                        <label for="setting-input-1" class="form-label">Barangay</label>
+                                      <input type="text" class="form-control" name="barangay2">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="setting-input-1" class="form-label">Municipality</label>
+                                      <input type="text" name="municipality2" class="form-control">
+                                    </div>
+                                    <div class="col">
+                                        <label for="setting-input-1" class="form-label">Province</label>
+                                      <input type="text" class="form-control" name="province2">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn app-btn-primary" >Update</button>
+                        </form>
+
+                        
+                    </div><!--//app-card-body-->
+                </div>
+            </div>
+</div>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                   <div class="modal-content">
@@ -109,6 +179,7 @@
                                             <th class="cell">Date Granted</th>
                                             <th class="cell">Date Expired</th>
                                             <th class="cell"></th>
+                                            <th class="cell"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -122,10 +193,32 @@
                                             <td class="cell"></span>{{ $item->expired }}</td>
                                     
                                             <td class="cell">
-                                                <a class="btn" href="{{ url('edit-tenement/'.$item->id) }}"><span class="badge bg-success">Edit</span></a>
-                                                <a class="btn" href="{{ url('delete-tenement/'.$item->id) }}"><span class="badge bg-danger">Delete</span></a>
-                                            </td>
+                                                <a  type="button" class="btn" data-bs-toggle="modal" data-bs-target="#updateModal" data-tenement={{ $item }}> <span class="badge bg-primary">Edit</span></a>
+                                                
+                                                <a class="btn" data-bs-toggle="modal" data-bs-target="#ModalDelete-{{$item->id}}"><span class="badge bg-danger">Delete</span></a>
+                                                
+                                                <!-- </td>
+                                             <td>
+                                                <a class="btn" onclick="return confirm('Are you sure you want to delete this specification record?');" href="{{ url('delete-tenement/'.$item->id) }}"><span class="badge bg-danger">Delete</span></a>
+                                            </td> -->
                                         </tr>
+                                        <div class="modal modal-danger fade" id="ModalDelete-{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                            <div class="modal-content">
+                                                <div class="modal-header text-center">
+                                                <h5 class="modal-title w-100" id="exampleModalLabel">Delete Confirmation</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                    <div class="modal-body text-center">
+                                                        Are you sure you want to delete the selected item?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" onclick="window.location='{{ url('delete-tenement/'.$item->id) }}'">Yes</button>
+                                                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>                                                
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
                                         @endforeach
                                     </tbody>
                                 </table>
@@ -145,3 +238,25 @@
     </div>
 </div>
 
+
+<script>
+    $('.modal#updateModal').on('show.bs.modal', function(e) {
+            //get data-id attribute of the clicked element
+            var bookId = $(e.relatedTarget).data('tenement');
+            bookId=Object.values(bookId);
+            
+            $('form#updateform').attr('action', `/update-tenement/${bookId[0]}`);
+            
+            // populate the textbox
+            $(e.currentTarget).find('input[name="description2"]').val(bookId[1]);
+            $(e.currentTarget).find('input[name="denominated2"]').val(bookId[2]);
+            $(e.currentTarget).find('input[name="granted2"]').val(bookId[3]);
+            $(e.currentTarget).find('input[name="expired2"]').val(bookId[4]);
+            $(e.currentTarget).find('input[name="sitio2"]').val(bookId[5]);
+            $(e.currentTarget).find('input[name="barangay2"]').val(bookId[6]);
+            $(e.currentTarget).find('input[name="municipality2"]').val(bookId[7]);
+            $(e.currentTarget).find('input[name="province2"]').val(bookId[8]);
+            
+            
+            });
+</script>

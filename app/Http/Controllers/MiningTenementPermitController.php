@@ -82,20 +82,20 @@ class MiningTenementPermitController extends Controller
     public function update(Request $request, $id)
     {
         $tenement = MiningTenementPermit::find($id);
-        $tenement->description = $request->input('description');
-        $tenement->denominated = $request->input('denominated');
-        $tenement->granted = $request->input('granted');
-        $tenement->expired = $request->input('expired');
-        $tenement->sitio = $request->input('sitio');
-        $tenement->barangay = $request->input('barangay');
-        $tenement->municipality = $request->input('municipality');
-        $tenement->province = $request->input('province');
+        $tenement->description = $request->input('description2');
+        $tenement->denominated = $request->input('denominated2');
+        $tenement->granted = $request->input('granted2');
+        $tenement->expired = $request->input('expired2');
+        $tenement->sitio = $request->input('sitio2');
+        $tenement->barangay = $request->input('barangay2');
+        $tenement->municipality = $request->input('municipality2');
+        $tenement->province = $request->input('province2');
         $tenement->update();
-        return redirect()->back()->with('status','Mining Tenement Permit Updated Successfully');
+        return redirect('/tenement')->with('status','Mining Tenement Permit Updated Successfully');
     }
     public function destroy($id)
     {
-
+        
         $tenement = MiningTenementPermit::find($id);
         $tenement->delete();
 
