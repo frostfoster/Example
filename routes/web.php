@@ -60,7 +60,7 @@ Route::post('tenement_add', [App\Http\Controllers\MiningTenementPermitController
 
 Route::get('/edit-tenement/{id}', [App\Http\Controllers\MiningTenementPermitController::class, 'edit']);
 
-Route::post('/update-tenement/{id}', [App\Http\Controllers\MiningTenementPermitController::class, 'update']);
+Route::put('/update-tenement/{id}', [App\Http\Controllers\MiningTenementPermitController::class, 'update']);
 
 Route::get('/delete-tenement/{id}', [App\Http\Controllers\MiningTenementPermitController::class, 'destroy']);
 
