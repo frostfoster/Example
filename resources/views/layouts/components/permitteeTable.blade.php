@@ -79,9 +79,9 @@
                                     <div class="col">
                                         <label class="form-label">Violation</label>
                                             <select name="violation" class="form-control" required>
-                                                <option value="1">Pending</option>
-                                                <option value="2">Running</option>
-                                                <option value="3">Completed</option>
+                                                @foreach ($violation as $item)                                 
+                                                        <option value="{{$item->id}}">{{$item->description}}</option>
+                                                @endforeach
                                             </select>
                                     </div>
 
@@ -117,7 +117,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @forelse ($permittee as $item)                                                                          
+                                        @foreach ($permittee as $item)                                                                          
                                         <tr>
                                             <td class="cell">{{ $item->id }}</td>
                                             <td class="cell"><span class="truncate">{{ $item->responsible_person }}</span></td>
@@ -126,14 +126,30 @@
                                             <td class="cell">{{ $item->remark }}</td>
                                             <td class="cell">
                                                 <a class="btn" href="{{ url('edit-permittee/'.$item->id) }}"><span class="badge bg-success">Edit</span></a>
-                                                <a class="btn" href="{{ url('delete-permittee/'.$item->id) }}"><span class="badge bg-danger">Delete</span></a>
+                                                <a class="btn" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $item->id }}"><span class="badge bg-danger">Delete</span></a>
                                             </td>
-                                                @empty
-                                                <p class="text-center">
-                                                    No result found for query <strong>{{request()->query('search')}}</strong>
-                                                </p>
-                                        </tr>                              
-                                        @endforelse
+                                        </tr>   
+                                        
+                                            <!--Delete Modal -->
+                                            <div class="modal fade" id="deleteModal-{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">WARNING!</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                    Are you sure you want to permanently delete the selected item?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" onclick="window.location='{{ url('delete-permittee/'.$item->id) }}'">Yes</button>
+                                                   <button type="button" class="btn btn-success" data-bs-dismiss="modal">No</button>                                                                                                        </div>
+                                                </div>
+                                                </div>
+                                            </div>
+
+
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div><!--//table-responsive-->

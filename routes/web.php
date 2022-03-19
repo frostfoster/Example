@@ -44,7 +44,6 @@ Route::get('/application_delete/{id}', [ApplicationController::class, 'destroy']
 
 Route::get('/permittee', [App\Http\Controllers\PermitteeController::class, 'index'])->name('permittee');
 
-
 Route::post('permitte_add', [App\Http\Controllers\PermitteeController::class, 'store']);
 
 Route::get('/edit-permittee/{id}', [App\Http\Controllers\PermitteeController::class, 'edit']);
@@ -84,3 +83,5 @@ Route::post('violation_add',[App\Http\Controllers\ViolationController::class, 's
 Route::get('edit-violation/{id}',[App\Http\Controllers\ViolationController::class, 'edit']);
 
 Route::post('update-violation/{id}',[App\Http\Controllers\ViolationController::class, 'update']);
+
+Route::get('/delete-violation/{id}', [App\Http\Controllers\ViolationController::class, 'destroy']);
