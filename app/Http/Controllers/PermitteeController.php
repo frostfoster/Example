@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Permittee;
+use App\Models\Violation;
 use Illuminate\Http\Request;
 
 
@@ -23,8 +24,10 @@ class PermitteeController extends Controller
             $permittee->appends(['search' => $search]);
         }else{
             $permittee = Permittee::paginate(10);
-        }        
-        return view('permittee', compact('permittee'));
+        }
+        
+        $violation = Violation::all();
+        return view('permittee', compact('permittee','violation'));
     }
 
     /**
@@ -77,7 +80,8 @@ class PermitteeController extends Controller
     public function edit($id)
     {
         $permittee = Permittee::find($id);
-        return view('permitteeUpdate',compact("permittee"));
+        $violation = Violation::all();
+        return view('permitteeUpdate',compact("permittee",'violation'));
     }
 
     /**

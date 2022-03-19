@@ -86,8 +86,10 @@ class ViolationController extends Controller
      * @param  \App\Models\Violation  $violation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Violation $violation)
+    public function destroy(Violation $violation,$id)
     {
-        //
+        $violation = Violation::find($id);
+        $violation->delete();       
+        return redirect()->back()->with('status','Permittee Deleted Successfully');
     }
 }
