@@ -31,7 +31,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::post('/mineraltypes', [MineralTypeController::class,'store']);
 Route::get('/mineraltypes',[MineralTypeController::class,'show']);
-Route::view('/testing','test');
 Route::post('edit/{id}',[MineralTypeController::class,'update']);
 Route::get('mineraltypeupdate/{id}',[MineralTypeController::class,'edit']);
 Route::get('/mineraltypedelete/{id}', [MineralTypeController::class, 'destroy']);
