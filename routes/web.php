@@ -85,3 +85,4 @@ Route::get('edit-violation/{id}',[App\Http\Controllers\ViolationController::clas
 Route::post('update-violation/{id}',[App\Http\Controllers\ViolationController::class, 'update']);
 
 Route::get('/delete-violation/{id}', [App\Http\Controllers\ViolationController::class, 'destroy']);
+
