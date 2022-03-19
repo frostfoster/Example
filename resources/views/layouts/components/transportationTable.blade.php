@@ -90,11 +90,9 @@
                                                         <div class="mb-3">
                                                             <label for="setting-input-1" class="form-label">Description</label>
                                                             <input type="text" class="form-control" name="description" value="{{$item->description}}">
-                                                        </div>          
-                                                        <div class="modal-footer">                  
+                                                        </div>               
                                                         <button type="submit" class="btn btn-success" >Update</button>
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>  
-                                                        </div>
+
                                                     </form>
                                                 </div>
                                             </div>
