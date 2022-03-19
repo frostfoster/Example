@@ -95,7 +95,7 @@ class MiningTenementPermitController extends Controller
     }
     public function destroy($id)
     {
-
+        
         $tenement = MiningTenementPermit::find($id);
         $tenement->delete();
 
