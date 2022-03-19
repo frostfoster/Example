@@ -238,6 +238,7 @@
     </div>
 </div>
 
+
 <script>
     $('.modal#updateModal').on('show.bs.modal', function(e) {
             //get data-id attribute of the clicked element
