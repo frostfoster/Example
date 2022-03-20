@@ -31,7 +31,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::post('/mineraltypes', [MineralTypeController::class,'store']);
 Route::get('/mineraltypes',[MineralTypeController::class,'show']);
-Route::view('/testing','test');
 Route::post('edit/{id}',[MineralTypeController::class,'update']);
 Route::get('mineraltypeupdate/{id}',[MineralTypeController::class,'edit']);
 Route::get('/mineraltypedelete/{id}', [MineralTypeController::class, 'destroy']);
@@ -43,7 +42,6 @@ Route::put('/application_update/{id}', [ApplicationController::class, 'update'])
 Route::get('/application_delete/{id}', [ApplicationController::class, 'destroy']);
 
 Route::get('/permittee', [App\Http\Controllers\PermitteeController::class, 'index'])->name('permittee');
-
 
 Route::post('permitte_add', [App\Http\Controllers\PermitteeController::class, 'store']);
 
@@ -60,7 +58,7 @@ Route::post('tenement_add', [App\Http\Controllers\MiningTenementPermitController
 
 Route::get('/edit-tenement/{id}', [App\Http\Controllers\MiningTenementPermitController::class, 'edit']);
 
-Route::post('/update-tenement/{id}', [App\Http\Controllers\MiningTenementPermitController::class, 'update']);
+Route::put('/update-tenement/{id}', [App\Http\Controllers\MiningTenementPermitController::class, 'update']);
 
 Route::get('/delete-tenement/{id}', [App\Http\Controllers\MiningTenementPermitController::class, 'destroy']);
 
@@ -84,3 +82,6 @@ Route::post('violation_add',[App\Http\Controllers\ViolationController::class, 's
 Route::get('edit-violation/{id}',[App\Http\Controllers\ViolationController::class, 'edit']);
 
 Route::post('update-violation/{id}',[App\Http\Controllers\ViolationController::class, 'update']);
+
+Route::get('/delete-violation/{id}', [App\Http\Controllers\ViolationController::class, 'destroy']);
+

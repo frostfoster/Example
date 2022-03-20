@@ -3,7 +3,7 @@
     <div class="app-content pt-3 p-md-3 p-lg-4">
         <div class="container-xl">
             <div class="col-auto">
-                <h1 class="app-page-title mb-0">VIOLATION
+                <h1 class="app-page-title mb-0">PERMITTEE
                     <a href="{{ url('violation') }}" class="btn btn-danger float-end">BACK</a>
                 </h1>
                 

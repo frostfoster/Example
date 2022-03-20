@@ -77,7 +77,8 @@ class MineralTypeController extends Controller
     public function edit(Request $request, $id)
     {
         $data = MineralType::find($id);
-        return view('mineraltypeupdate',compact ('data'));
+        return view('',compact ('data'));
+
     }
 
     /**
@@ -95,6 +96,7 @@ class MineralTypeController extends Controller
         $data->save();
 
         return redirect()->back();
+
     }
 
     /**
@@ -109,5 +111,6 @@ class MineralTypeController extends Controller
         $data->delete();
 
         return redirect()->back();
+
     }
 }
