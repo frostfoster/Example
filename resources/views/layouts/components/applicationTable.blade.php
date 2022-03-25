@@ -73,14 +73,13 @@
                                 <textarea class="form-control" name="applicant_mailing_address" rows="3"></textarea>
                             </div>
                             <div class="form-group row">
-                                <div class="form-group col-sm-2">
-                                    <label for="material">Kind of Material</label>
-                                    <select class="form-control form-control-sm" name="materialKind">
-                                        <option selected>Select Combo</option>
-                                        <option>Combo 1</option>
-                                        <option>Combo 2</option>
-                                        <option>Combo 3</option>
-                                      </select>
+                                <div class="col">
+                                    <label class="form-label">Kind of Material</label>
+                                        <select name="mineral_id" class="form-control" required>
+                                            @foreach ($mineral as $item)                                 
+                                                    <option value="{{$item->id}}">{{$item->description}}</option>
+                                            @endforeach
+                                        </select>
                                 </div>
                                   <div class="form-group col-sm-2">
                                     <label for="volume">Volume/Tonnage</label>
@@ -101,21 +100,22 @@
                                     <input type="text" class="form-control" name="specification">
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <div class="form-group col-sm-5">
-                                    <label for="material">Mining Tenement/Permit</label>
-                                    <select class="form-control form-control-sm" name="">
-                                        <option selected>Select Permit</option>
-                                        <option>Permit 1</option>
-                                        <option>Permit 2</option>
-                                        <option>Permit 3</option>
-                                    </select>
+                            <div class="mb-3">
+                                <div class="row">
+                                    <div class="col">
+                                        <label class="form-label">Mining Tenement/Permit</label>
+                                            <select name="permit_id" class="form-control" required>
+                                                @foreach ($tenement as $item)                                 
+                                                        <option value="{{$item->id}}">{{$item->description}}</option>
+                                                @endforeach
+                                            </select>
+                                    </div>
+                                    <div class="col">
+                                        <label for="setting-input-1" class="form-label">Remark</label>
+                                      <input type="text" class="form-control" name="remark" required>
+                                    </div>
                                 </div>
-                                <div class="form-group col-sm-2">
-                                    <label for="unit">Denominated</label>
-                                    <input type="text" class="form-control" name="denominated">
-                                </div>
-                            </div>
+                            </div>   
                             <div class="form-group row">
                                 <div class="form-group col-sm-2">
                                     <label for="setting-input-1" class="form-label">Date Granted</label>
@@ -139,14 +139,13 @@
                                 <textarea class="form-control" name="mailing_address" rows="3"></textarea>
                             </div>
                             <div class="form-group row">
-                                <div class="form-group col-sm-2">
-                                    <label for="mode">Mode of Transport</label>
-                                    <select class="form-control form-control-sm" name="">
-                                        <option selected>Select Mode</option>
-                                        <option>Mode 1</option>
-                                        <option>Mode 2</option>
-                                        <option>Mode 3</option>
-                                      </select>
+                                <div class="col">
+                                    <label class="form-label">Mode of Transport</label>
+                                        <select name="transport_id" class="form-control" required>
+                                            @foreach ($transportation as $item)                                 
+                                                    <option value="{{$item->id}}">{{$item->description}}</option>
+                                            @endforeach
+                                        </select>
                                 </div>
                                   <div class="form-group col-sm-2">
                                     <label for="verhiclenumber">No. of Vehicle</label>

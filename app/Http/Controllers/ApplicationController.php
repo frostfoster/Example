@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Application;
+use App\Models\MineralType;
+use App\Models\MiningTenementPermit;
+use App\Models\ModeofTransportation;
 use Illuminate\Http\Request;
 
 class ApplicationController extends Controller
@@ -22,8 +25,11 @@ class ApplicationController extends Controller
             $application->appends(['search' => $search]);
         }else{
             $application = Application::paginate(10);
-        }        
-        return view('application', compact('application'));
+        }
+        $mineral = MineralType::all();     
+        $tenement = MiningTenementPermit::all();     
+        $transportation = ModeofTransportation::all();     
+        return view('application', compact('application','mineral','tenement','transportation'));
     }
 
     /**
@@ -46,7 +52,12 @@ class ApplicationController extends Controller
     {
         //
         $input = new Application;
+        $tenement = new MiningTenementPermit;
         if ($input->otp == 1)
+        {
+            $input->otp;
+        }
+        else if ($input->otp == 2)
         {
             $input->otp;
         }
@@ -76,7 +87,10 @@ class ApplicationController extends Controller
     {
         //
         $application = Application::find($id);
-        return view('applicationUpdate',compact("application"));
+        $mineral = MineralType::all();     
+        $tenement = MiningTenementPermit::all();     
+        $transportation = ModeofTransportation::all();  
+        return view('applicationUpdate',compact("application",'mineral','tenement','transportation'));
     }
 
     /**

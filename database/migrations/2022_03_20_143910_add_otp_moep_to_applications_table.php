@@ -15,8 +15,9 @@ class AddOtpMoepToApplicationsTable extends Migration
     {
         Schema::table('applications', function (Blueprint $table) {
             //
-            $table->tinyInteger('otp')->nullable();
-            $table->tinyInteger('moep')->nullable();
+            $table->tinyInteger('mineral_id');
+            $table->tinyInteger('transport_id');
+            $table->tinyInteger('permit_id');
         });
     }
 

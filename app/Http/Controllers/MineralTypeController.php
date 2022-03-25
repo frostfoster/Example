@@ -55,7 +55,7 @@ class MineralTypeController extends Controller
             
     }
 
-    /**
+    /** 
      * Display the specified resource.
      *
      * @param  \App\Models\MineralType  $mineralType
