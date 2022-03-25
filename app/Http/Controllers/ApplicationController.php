@@ -57,10 +57,6 @@ class ApplicationController extends Controller
         {
             $input->otp;
         }
-        else if ($input->otp == 2)
-        {
-            $input->otp;
-        }
         $input=$request->all();
         Application::create($input);
         return redirect()->back()->with('status','Permittee Added Successfully');

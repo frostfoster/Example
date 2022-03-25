@@ -66,15 +66,15 @@
                             </div>
                             <div class="form-group col-sm-8">
                                 <label for="location">Applicant Name</label>
-                                <textarea class="form-control" name="applicant_name" rows="3"></textarea>
+                                <input type="text" class="form-control" name="applicant_name">
                             </div>
                             <div class="form-group col-sm-8">
                                 <label for="mailingaddress">Mailing Address</label>
-                                <textarea class="form-control" name="applicant_mailing_address" rows="3"></textarea>
+                                <input type="text" class="form-control" name="applicant_mailing_address">
                             </div>
                             <div class="form-group row">
                                 <div class="col">
-                                    <label class="form-label">Kind of Material</label>
+                                    <label class="form-label">Kind of Mineral</label>
                                         <select name="mineral_id" class="form-control" required>
                                             @foreach ($mineral as $item)                                 
                                                     <option value="{{$item->id}}">{{$item->description}}</option>
@@ -111,8 +111,8 @@
                                             </select>
                                     </div>
                                     <div class="col">
-                                        <label for="setting-input-1" class="form-label">Remark</label>
-                                      <input type="text" class="form-control" name="remark" required>
+                                        <label for="setting-input-1" class="form-label">Denominated</label>
+                                      <input type="text" class="form-control" name="to_be_dispoed" required>
                                     </div>
                                 </div>
                             </div>   
@@ -128,7 +128,7 @@
                             </div>
                             <div class="form-group col-sm-8">
                                 <label for="location">Location</label>
-                                <textarea class="form-control" name="location" rows="3"></textarea>
+                                <input type="text" class="form-control" name="location">
                             </div>
                             <div class="form-group col-sm-8">
                                 <label for="consignedto">Consigned To</label>
@@ -136,7 +136,7 @@
                             </div>
                             <div class="form-group col-sm-8">
                                 <label for="mailing_address">Mailing Address</label>
-                                <textarea class="form-control" name="mailing_address" rows="3"></textarea>
+                                <input type="text" class="form-control" name="mailing_address">
                             </div>
                             <div class="form-group row">
                                 <div class="col">
@@ -172,7 +172,7 @@
                             </div>
                             <div class="form-group col-sm-8">
                                 <label for="place">Place</label>
-                                <textarea class="form-control" name="place" rows="3"></textarea>
+                                <input type="text" class="form-control" name="place">
                             </div>
                             <div class="form-group row">
                                 <div class="form-group col-sm-3">
