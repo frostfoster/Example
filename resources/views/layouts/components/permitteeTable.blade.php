@@ -125,7 +125,10 @@
                                             <td class="cell"></span>{{ $item->time_apprehend }}</td>
                                             <td class="cell">{{ $item->remark }}</td>
                                             <td class="cell">
-                                                <a class="btn" href="{{ url('edit-permittee/'.$item->id) }}"><span class="badge bg-success">Edit</span></a>
+                                                <a class="btn" data-bs-toggle="modal" 
+                                                data-bs-target="#updateModal-{{ $item->id,$item->responsible_person, $item->date_apprehend,
+                                                $item->time_apprehend,$item->remark,$item->violation_permit_id,$item->permit_holder,$item->area_location
+                                                }}"><span class="badge bg-success">Edit</span></a>
                                                 <a class="btn" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $item->id }}"><span class="badge bg-danger">Delete</span></a>
                                             </td>
                                         </tr>   
@@ -144,6 +147,70 @@
                                                     <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger" onclick="window.location='{{ url('delete-permittee/'.$item->id) }}'">Yes</button>
                                                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">No</button>                                                                                                        </div>
+                                                </div>
+                                                </div>
+                                            </div>
+
+                                            {{-- Modal Update --}}
+                                            <div class="modal fade" id="updateModal-{{ $item->id,$item->responsible_person, $item->date_apprehend,
+                                                $item->time_apprehend,$item->remark,$item->violation_permit_id,$item->permit_holder,$item->area_location }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">UPDATE</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form class="form-row" method="POST" action="{{ url('update-permittee/'.$item->id) }}">
+                                                            @csrf
+                                                            @method('PUT')
+                                                            <div class="mb-3">
+                                                                <label for="setting-input-1" class="form-label">Permit Holder</label>
+                                                                <input type="text" class="form-control" name="permit_holder" value="{{$item->permit_holder}}">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="setting-input-2" class="form-label">Area Location</label>
+                                                                <input type="text" class="form-control" name="area" value="{{$item->area_location}}">
+                                                            </div>
+                                
+                                                            <div class="mb-3">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <label for="setting-input-1" class="form-label">Date</label>
+                                                                      <input type="date" name="date" class="form-control" value="{{$item->date_apprehend}}">
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <label for="setting-input-1" class="form-label">Time</label>
+                                                                      <input type="text" class="form-control" name="time" value="{{$item->time_apprehend}}">
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <label for="setting-input-1" class="form-label">Responsible</label>
+                                                                        <input type="text" class="form-control" name="responsible" value="{{$item->responsible_person}}">
+                                                                      </div>
+                                                                </div>
+                                                            </div>      
+                                                            
+                                                            <div class="mb-3">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <label class="form-label">Violation</label>
+                                                                        <select name="violation" class="form-control" required>
+                                                                            @foreach ($violation as $violation_item)                                 
+                                                                                    <option value="{{$violation_item->id}}" {{$violation_item->id == $item->violation_permit_id ? 'selected' : ''}}>{{$violation_item->description}}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                
+                                                                    
+                                                                    <div class="col">
+                                                                        <label for="setting-input-1" class="form-label">Remark</label>
+                                                                      <input type="text" class="form-control" name="remark" value="{{$item->remark}}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>   
+                                                            <button type="submit" class="btn app-btn-primary" >Update</button>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                                 </div>
                                             </div>
