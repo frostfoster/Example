@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddVolumeColumnToApplicationsTable extends Migration
+class RemoveCerficationDateToApplicationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,9 +15,7 @@ class AddVolumeColumnToApplicationsTable extends Migration
     {
         Schema::table('applications', function (Blueprint $table) {
             //
-            $table->Integer('volume')->nullable();
-            $table->string('location',200)->nullable();
-            $table->string('denominated',200)->nullable();
+            $table->dropColumn('cerfication_date');
         });
     }
 

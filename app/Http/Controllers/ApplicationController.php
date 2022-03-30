@@ -59,7 +59,7 @@ class ApplicationController extends Controller
         }
         $input=$request->all();
         Application::create($input);
-        return redirect()->back()->with('status','Permittee Added Successfully');
+        return redirect()->back()->with('status','Application Added Successfully');
     }
 
     /**
@@ -94,7 +94,7 @@ class ApplicationController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Application  $application
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\s
      */
     public function update(Request $request,$id)
     {
@@ -117,13 +117,5 @@ class ApplicationController extends Controller
         $application = Application::find($id);
         $application->delete();       
         return redirect()->back()->with('status','Application Deleted Successfully');
-    }
-
-    public function search()
-    {
-        //
-        $search_text = $_GET['search'];
-        $application = Application::where('applicant_name','LIKE', '%'.$search_text.'%')->get();
-        return view('application', compact('application'));
     }
 }
