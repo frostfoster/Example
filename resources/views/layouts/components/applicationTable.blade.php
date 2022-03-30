@@ -293,9 +293,9 @@
                                                             <div class="form-group col-sm-2">
                                                                 <label class="form-label">Kind of Mineral</label>
                                                                 <select name="mineral_id" class="form-control">
-                                                                    {{-- @foreach ($mineral as $mineral_item)                                 
+                                                                    @foreach ($mineral as $mineral_item)                                 
                                                                             <option value="{{$mineral_item->id}}" {{$mineral_item->id == $item->mineral_id ? 'selected' : ''}}>{{$mineral_item->description}}</option>
-                                                                    @endforeach --}}
+                                                                    @endforeach
                                                                 </select>
                                                             </div>
                                                               <div class="form-group col-sm-2">
@@ -321,9 +321,9 @@
                                                             <div class="form-group col-sm-5">
                                                                 <label for="permit">Mining Tenement/Permit</label>
                                                                 <select name="permit_id" class="form-control" required>
-                                                                    {{-- @foreach ($tenement as $tenement_item)                                 
+                                                                    @foreach ($tenement as $tenement_item)                                 
                                                                             <option value="{{$tenement_item->id}}" {{$tenement_item->id == $item->permit_id ? 'selected' : ''}}>{{$tenement_item->description}}</option>
-                                                                    @endforeach --}}
+                                                                    @endforeach
                                                                 </select>
                                                             </div>
                                                             <div class="form-group col-sm-2">
@@ -357,9 +357,9 @@
                                                             <div class="form-group col-sm-2">
                                                                 <label for="mode">Mode of Transport</label>
                                                                 <select name="transport_id" class="form-control" required>
-                                                                    {{-- @foreach ($transportation as $transportation_item)                                 
+                                                                    @foreach ($transportation as $transportation_item)                                 
                                                                             <option value="{{$transportation_item->id}}" {{$transportation_item->id == $item->transport_id ? 'selected' : ''}}>{{$transportation_item->description}}</option>
-                                                                    @endforeach --}}
+                                                                    @endforeach
                                                                 </select>
                                                             </div>
                                                               <div class="form-group col-sm-2">
