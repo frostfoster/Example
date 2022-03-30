@@ -255,7 +255,7 @@
                                             $item->place,$item->mineral_id,$item->transport_id,$item->specification,$item->certification_fee,$item->certification_or,
                                             $item->certification_date,$item->permit_id,$item->volume,$item->location }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                            <div class="modal-content">
+                                            <div class="modal-content">     
                                                 <div class="modal-header text-center">
                                                 <h5 class="modal-title w-100" id="exampleModalLabel">Edit Application</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -265,7 +265,7 @@
                                                         @csrf
                                                         <div class="form-group row">
                                                             <div class="form-group col-sm-3">
-                                                                <label for="app">Application No.</label>
+                                                                <label for="app">Application No.</label>       
                                                                 <input type="number" class="form-control" name="control_no" value="{{$application->control_no}}">
                                                             </div>
                                                             <div class="form-group col-sm-2">
