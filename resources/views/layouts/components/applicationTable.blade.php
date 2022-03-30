@@ -254,7 +254,7 @@
                                             $item->no_of_vehicle_,$item->date_of_travel,$item->destination,$item->bir_tax_amount,$item->receipt_no,
                                             $item->place,$item->mineral_id,$item->transport_id,$item->specification,$item->certification_fee,$item->certification_or,
                                             $item->certification_date,$item->permit_id,$item->volume,$item->location }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
                                             <div class="modal-content">
                                                 <div class="modal-header text-center">
                                                 <h5 class="modal-title w-100" id="exampleModalLabel">Edit Application</h5>
@@ -266,28 +266,28 @@
                                                         <div class="form-group row">
                                                             <div class="form-group col-sm-3">
                                                                 <label for="app">Application No.</label>        
-                                                                <input type="number" class="form-control" name="control_no" value="{{$application->control_no}}">
+                                                                <input type="number" class="form-control" name="control_no" value="{{$item->control_no}}">
                                                             </div>
                                                             <div class="form-group col-sm-2">
                                                                 <label for="moep">MOEP No.</label>
-                                                                <input type="number" class="form-control" name="moep" value="{{$application->moep}}">
+                                                                <input type="number" class="form-control" name="moep" value="{{$item->moep}}">
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-sm-2">
                                                             <label for="setting-input-1" class="form-label">Date of Application</label>
-                                                                  <input type="date" name="date_applied" value="{{$application->date_applied}}" class="form-control" required>
+                                                                  <input type="date" name="date_applied" value="{{$item->date_applied}}" class="form-control" required>
                                                         </div>
                                                         <div class="form-group col-sm-8">
                                                             <label for="permitteename">Name of Permittee</label>
-                                                            <input type="text" class="form-control" name="permittee_name" value="{{$application->permittee_name}}">
+                                                            <input type="text" class="form-control" name="permittee_name" value="{{$item->permittee_name}}">
                                                         </div>
                                                         <div class="form-group col-sm-8">
                                                             <label for="location">Applicant Name</label>
-                                                            <input type="text" class="form-control" name="applicant_name" value="{{ $application->applicant_name }}">
+                                                            <input type="text" class="form-control" name="applicant_name" value="{{ $item->applicant_name }}">
                                                         </div>
                                                         <div class="form-group col-sm-8">
                                                             <label for="mailingaddress">Mailing Address</label>
-                                                            <input type="text" class="form-control" name="applicant_mailing_address" value="{{ $application->applicant_mailing_address }}">
+                                                            <input type="text" class="form-control" name="applicant_mailing_address" value="{{ $item->applicant_mailing_address }}">
                                                         </div>
                                                         <div class="form-group row">`
                                                             <div class="form-group col-sm-2">
@@ -300,21 +300,21 @@
                                                             </div>
                                                               <div class="form-group col-sm-2">
                                                                 <label for="volume">Volume/Tonnage</label>
-                                                                <input type="text" class="form-control" name="volume" value="{{ $application->volume}}">
+                                                                <input type="text" class="form-control" name="volume" value="{{ $item->volume}}">
                                                               </div>
                                                             <div class="form-group col-sm-2">
                                                                 <label for="unit">Unit</label>      
-                                                                <input type="text" class="form-control" name="unit" value="{{ $application->unit }}">
+                                                                <input type="text" class="form-control" name="unit" value="{{ $item->unit }}">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <div class="form-group col-sm-3">
                                                                 <label for="app">Estimated Value</label>
-                                                                <input type="number" class="form-control" name="estimated_value" value="{{$application->estimated_value}}">
+                                                                <input type="number" class="form-control" name="estimated_value" value="{{$item->estimated_value}}">
                                                             </div>
                                                             <div class="form-group col-sm-2">
                                                                 <label for="moep">Specification</label>
-                                                                <input type="text" class="form-control" name="specification" value="{{$application->specification}}">
+                                                                <input type="text" class="form-control" name="specification" value="{{$item->specification}}">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -343,15 +343,15 @@
                                                         </div>
                                                         <div class="form-group col-sm-8">
                                                             <label for="location">Location</label>
-                                                            <input type="text" class="form-control" name="location" value="{{ $application->location }}">
+                                                            <input type="text" class="form-control" name="location" value="{{ $item->location }}">
                                                         </div>
                                                         <div class="form-group col-sm-8">
                                                             <label for="consignedto">Consigned To</label>
-                                                            <input type="text" class="form-control" name="cosigned_to" value="{{$application->consigned_to}}">
+                                                            <input type="text" class="form-control" name="cosigned_to" value="{{$item->consigned_to}}">
                                                         </div>
                                                         <div class="form-group col-sm-8">
                                                             <label for="mailing_address">Mailing Address</label>
-                                                            <input type="text" class="form-control" name="mailing_address" value="{{ $application->mailing_address }}">
+                                                            <input type="text" class="form-control" name="mailing_address" value="{{ $item->mailing_address }}">
                                                         </div>
                                                         <div class="form-group row">
                                                             <div class="form-group col-sm-2">
@@ -364,54 +364,54 @@
                                                             </div>
                                                               <div class="form-group col-sm-2">
                                                                 <label for="verhiclenumber">No. of Vehicle</label>
-                                                                <input type="number" class="form-control" name="no_of_vehicle" value="{{$application->no_of_vehicle}}">
+                                                                <input type="number" class="form-control" name="no_of_vehicle" value="{{$item->no_of_vehicle}}">
                                                               </div>
                                                             <div class="form-group col-sm-2">
                                                                     <label for="input">Expected DOT</label>
-                                                                    <input type="date" name="date_of_travel" value="{{$application->date_of_travel}}" class="form-control">
+                                                                    <input type="date" name="date_of_travel" value="{{$item->date_of_travel}}" class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-sm-8">
                                                             <label for="portDestination">Port Destination</label>
-                                                            <input type="text" class="form-control" name="destination" value="{{$application->destination}}">
+                                                            <input type="text" class="form-control" name="destination" value="{{$item->destination}}">
                                                         </div>
                                                         <div class="form-group row">
                                                             <div class="form-group col-sm-2">
                                                                 <label for="taxamount">BIR Tax Amount Paid</label>
-                                                                <input type="number" class="form-control" name="bir_tax_amount" value="{{$application->bir_tax_amount}}">
+                                                                <input type="number" class="form-control" name="bir_tax_amount" value="{{$item->bir_tax_amount}}">
                                                             </div>
                                                             <div class="form-group col-sm-6">
                                                                 <label for="receiptno">Receipt No.</label>
-                                                                <input type="text" class="form-control" name="receipt_no" value="{{$application->receipt_no}}">
+                                                                <input type="text" class="form-control" name="receipt_no" value="{{$item->receipt_no}}">
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-sm-8">
                                                             <label for="place">Place</label>
-                                                            <input type="text" class="form-control" name="place" value="{{$application->place}}">
+                                                            <input type="text" class="form-control" name="place" value="{{$item->place}}">
                                                         </div>
                                                         <div class="form-group row">
                                                             <div class="form-group col-sm-3">
                                                                 <label for="prcoessfee">Processing Fee</label>
-                                                                <input type="number" class="form-control" name="certification_fee" value="{{$application->certification_fee}}">
+                                                                <input type="number" class="form-control" name="certification_fee" value="{{$item->certification_fee}}">
                                                             </div>
                                                             <div class="form-group col-sm-3">
                                                                 <label for="orno">OR No.</label>
-                                                                <input type="text" class="form-control" name="certification_or" value="{{$application->certification_or}}">
+                                                                <input type="text" class="form-control" name="certification_or" value="{{$item->certification_or}}">
                                                             </div>
                                                             <div class="form-group col-sm-2">
                                                                 <label for="setting-input-1" class="form-label">Date</label>
-                                                                  <input type="date" name="certification_date" value="{{$application->cerfication_date}}" class="form-control" required>
+                                                                  <input type="date" name="certification_date" value="{{$item->cerfication_date}}" class="form-control" required>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" name="otp" value="{{$application->otp}}">
+                                                                <input class="form-check-input" type="checkbox" name="otp" value="{{$item->otp}}">
                                                                 <label class="form-check-label" for="option1">
                                                                   OTP
                                                                 </label>
                                                             </div>
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" name="otp" value="{{$application->otp}}">
+                                                                <input class="form-check-input" type="checkbox" name="otp" value="{{$item->otp}}">
                                                                 <label class="form-check-label" for="option2">
                                                                   MOEP
                                                                 </label>
