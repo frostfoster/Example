@@ -62,7 +62,7 @@
                                             <th class="cell">ID</th>
                                             <th class="cell">Description</th>
                                             <th class="cell"></th>
-                                        </tr>
+                                        </tr>z`
                                     </thead>
                                     <tbody>
                                     
