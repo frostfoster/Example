@@ -1,10 +1,11 @@
+
 <div class="app-wrapper">
+ 
     <div class="app-content pt-3 p-md-3 p-lg-4">
+                       
         <div class="container-xl">
             <div class="row g-3 mb-4 align-items-center justify-content-between">
-                @if (session('status'))
-                    <h6 class="alert alert-success">{{ session('status') }}</h6>
-                @endif
+
                 <div class="col-auto">
                     <h1 class="app-page-title mb-0">Mining Tenement Permit</h1>
                 </div>            
@@ -194,8 +195,8 @@
                                     
                                             <td class="cell">
                                                 <a  type="button" class="btn" data-bs-toggle="modal" data-bs-target="#updateModal" data-tenement={{ $item }}> <span class="badge bg-primary">Edit</span></a>
-                                                
-                                                <a class="btn" data-bs-toggle="modal" data-bs-target="#ModalDelete-{{$item->id}}"><span class="badge bg-danger">Delete</span></a>
+                                                {{-- before code --}}
+                                                <a class="btn" onclick="confirmAction('mining tenement','danger','{{ url('delete-tenement/'.$item->id) }}')" ><span class="badge bg-danger">Delete</span></a>
                                                 
                                                 <!-- </td>
                                              <td>
@@ -240,6 +241,46 @@
 
 
 <script>
+    function confirmAction(info,status,formId){
+    var td_name=$('#td_name').text();
+   
+    if(status=="danger"){
+        Swal.fire({
+  title: 'Delete Confirmation',
+  text:'   Are you sure you want to delete the selected item?',
+  showDenyButton: true,
+  showCancelButton: true,
+  confirmButtonText: 'Yes',
+  denyButtonText: `I changed my mind.`,
+}).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+    Swal.fire('Saved!', '', 'success')
+    window.location=formId;
+
+  } else if (result.isDenied) {
+    Swal.fire('Changes are not saved', '', 'info')
+  }
+})
+
+         
+    }
+
+}
+   $(document).ready(function () {
+ 
+
+    $('.toggle-alert').click(function(){
+        $('.toast').toggle();
+      });
+    $('.toast').toast('show',{
+        animation: true,
+        autohide: true,
+        delay: 500
+      });
+   });
+    
+
     $('.modal#updateModal').on('show.bs.modal', function(e) {
             //get data-id attribute of the clicked element
             var bookId = $(e.relatedTarget).data('tenement');
